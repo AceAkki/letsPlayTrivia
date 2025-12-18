@@ -1,22 +1,23 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --clr-primary:#6d6875;
+  --clr-primary-light:#b5838d;
+  --clr-secondary:#F5F5F0;
+  --clr-success:#B6CEB4;
+  --clr-neutral:#F8FAB4;
+  --clr-warning:#F08787;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "BBH Bogle", sans-serif;
+  background: url(https://cdn.pixabay.com/photo/2016/02/07/19/48/aurora-1185464_1280.jpg) no-repeat center / cover fixed;
+}
+
+button {
+  font-family: "BBH Bogle", sans-serif;
 }
 
 header {
@@ -26,8 +27,8 @@ header {
   backdrop-filter: blur(10px);
   width: 100%;
   font-weight: 400;
+  font-size: 1.5rem;
 }
-
 
 nav {
   display: flex;
@@ -36,10 +37,6 @@ nav {
   padding: 0 2rem;
 }
 
-main {
-  margin: 1rem 3rem;
-  padding: 5rem 0;
-}
 
 footer {
   position: fixed;
@@ -50,69 +47,4 @@ footer {
   padding: 1rem 3rem;
   color: #1a1a1a;
   font-weight: 400;
-}
-
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-
-form {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-form label {
-  font-weight: 500;
-}
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.trivia-que {
-  margin: 2rem 1rem;
-  padding: 1rem 0.5rem;
-  border-bottom: 2px solid;
-}
-
-.trivia-que form {
-  display: flex;
-  gap: 0.5rem;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
