@@ -1,12 +1,14 @@
-.main-wrap{
+.main-wrap {
   margin: 1rem 2rem 5rem;
 }
+
 .main-title {
-  font-size: 15rem;
+  font-size: 3rem;
+  font-weight: 900;
   letter-spacing: 1rem;
-  line-height: 12rem;
+  line-height: 3rem;
   color: var(--clr-secondary);
-  margin-bottom: 3rem;
+  margin:10rem 0;
 }
 
 .start-btn {
@@ -19,11 +21,17 @@
 }
 
 .form-sec {
-   font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 2rem;
   background: rgb(0, 0, 0, 0.7);
   color: var(--clr-secondary);
   backdrop-filter: blur(10px);
   padding: 2rem 3rem;
   border-radius: 1rem;
+}
+
+@media screen and (min-width: 1080px) {
+  .main-title {
+    font-size: 15rem;
+  }
 }
