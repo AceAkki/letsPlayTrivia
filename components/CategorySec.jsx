@@ -9,7 +9,7 @@ export default function CategorySec () {
     let typeArr = [{"name":"Multiple Choice", "value":"multiple"}, {"name":"True / False", "value":"boolean"}]
     
     useEffect(() => {
-        async function getCategories() {
+        async function fetchCategories() {
             const data = await fetch("https://opentdb.com/api_category.php");
             try {
             const response = await data.json();
@@ -19,14 +19,14 @@ export default function CategorySec () {
             
             }
           }
-        getCategories()
+        fetchCategories()
     }, [])
 
     console.log(categories)
-    async function RenderCategories() {
-        return categories.map(category => <option value={category.id}>{category.name}</option>)
-    }
-
+    
+    
+    let getCategories = categories.map(category => <option value={category.id}>{category.name}</option>)
+    console.log(getCategories)
     let getDifficulty = diffArr.map(diff => <option value={diff.toLowerCase()}>{diff}</option>);
     let getType = typeArr.map(type => <option value={type.value}>{type.name}</option>)
     return (
@@ -34,7 +34,7 @@ export default function CategorySec () {
             <form action="">
                 <div>
                     <select name="category" id="category">
-                       
+                       {getCategories}
                     </select>
                 </div>
                 <div>
