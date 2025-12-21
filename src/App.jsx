@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -25,6 +25,12 @@ function App() {
         console.log(error)
     }
   }
+
+  useEffect(()=> {
+    let headerHeight = Math.floor(document.querySelector("header").getBoundingClientRect().height) + 50;
+    let root = document.documentElement.style;
+    root.setProperty("--header-height", `${headerHeight}px`)
+  }, [])
   
   return (
     <>

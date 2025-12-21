@@ -8,14 +8,14 @@ export function Main (props) {
         <>
             <main className="main-wrap">
             <h1  className="main-title">
-                Welcome to Trivia {(props.uName === "") ? "" : props.uName}!
+                Let's Play Trivia {(props.uName === "") ? "" : props.uName}!
             </h1>
 
             {
             (!playFlag) ?
                 <button onClick={()=> setPlayFlag(true)} className="start-btn">Start Game</button> :
                 (props.uName === "") ? <section className="form-sec">
-                    <h5>Tell us about yourself to proceed.</h5>
+                    <h5>Tell us about yourself</h5>
                     <Form func={props.formFunc}/>  
 
                 </section> : 

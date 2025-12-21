@@ -12,7 +12,7 @@ export default function Header(props) {
                 </div>
                 <div>
                     <h4>
-                        {(props.uName === "") ? "User" : props.uName }
+                        {(props.uName === "") ? null : props.uName }
                     </h4>
                 </div>
             </nav>

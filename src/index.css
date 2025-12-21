@@ -1,11 +1,13 @@
 :root {
-  --clr-primary:#6d6875;
-  --clr-primary-light:#b5838d;
+  --clr-primary:#01202A;
+  --clr-primary-light:#9AC5B7;
   --clr-secondary:#F5F5F0;
-  --clr-success:#B6CEB4;
+  
+  --clr-success:#02B461;
   --clr-neutral:#F8FAB4;
   --clr-warning:#F08787;
 
+  --header-height:0;
 }
 
 body {
@@ -25,6 +27,7 @@ header {
   top: 0;
   background: transparent;
   backdrop-filter: blur(10px);
+  color: var(--clr-secondary);
   width: 100%;
   font-weight: 400;
   font-size: 1.5rem;
