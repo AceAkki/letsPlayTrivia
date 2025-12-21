@@ -14,6 +14,10 @@ function App() {
       await getData();
   }
 
+  async function startGame(params) {
+    
+  }
+
   async function getData() {
     try {
       const response = await fetch("https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean");
@@ -29,7 +33,9 @@ function App() {
   useEffect(()=> {
     let headerHeight = Math.floor(document.querySelector("header").getBoundingClientRect().height) + 50;
     let root = document.documentElement.style;
-    root.setProperty("--header-height", `${headerHeight}px`)
+    root.setProperty("--header-height", `${headerHeight}px`);
+    
+    
   }, [])
   
   return (

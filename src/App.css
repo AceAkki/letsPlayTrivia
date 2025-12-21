@@ -13,6 +13,7 @@
   letter-spacing: 1rem;
   line-height: 3rem;
   color: var(--clr-secondary);
+  margin: 1rem;
 }
 
 .start-btn {
