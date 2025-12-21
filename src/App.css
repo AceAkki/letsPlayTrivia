@@ -60,6 +60,25 @@
   background-color: var(--clr-primary-light);
 }
 
+.form-wrap-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.select-wrap {
+  margin: 1rem;
+}
+
+select {
+	padding: 1rem 2rem;
+	border-radius: 16px;
+	border: none;
+	outline: none;
+  width: 100%;
+}
+
+
 .trivia-que {
   font-size: 1.5rem;
 }
