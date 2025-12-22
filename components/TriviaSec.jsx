@@ -3,10 +3,10 @@ export function TriviaSec(props) {
   let elems = mainData.map((dt) => {
     return (
       <li className="trivia-que"  key={dt.question}>
-        <p dangerouslySetInnerHTML={{ __html: dt.question }}
+        <h4 dangerouslySetInnerHTML={{ __html: dt.question }}
         />
         {mainData.type === "boolean" ? (
-          <div>
+          <div className="answer-wrap">
             <label htmlFor="true">
               True
               <input type="radio" name="answer" />
@@ -17,7 +17,7 @@ export function TriviaSec(props) {
             </label>
           </div>
         ) : (
-          <div>
+          <div className="answer-wrap">
             {[...dt.incorrect_answers, dt.correct_answer].sort(() => Math.random() - 0.4).map((ans) => (
               <label key={ans}>
                 {ans}
@@ -35,7 +35,7 @@ export function TriviaSec(props) {
   });
 
   return (
-    <section>
+    <section className="trivia-sec">
       <ol>{elems}</ol>
     </section>
   );
