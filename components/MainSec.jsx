@@ -24,7 +24,7 @@ export function Main(props) {
             {/* <h5>Tell us about yourself</h5> */}
             <Form func={props.formFunc} />
           </section>
-        : <CategorySec initGame={props.initGame} categories={props.categories}/>}
+        : (props.triviaData === null) ? <CategorySec initGame={props.initGame} categories={props.categories}/> : null}
 
         {(props.triviaData !== null) ? 
           <TriviaSec data={props.triviaData} /> : null

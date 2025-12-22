@@ -29,7 +29,7 @@ export default function CategorySec (props) {
                         {getType}
                     </select>
                 </div>
-                <button>
+                <button className="btn-select">
                     Start Trivia
                 </button>
 
