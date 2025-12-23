@@ -1,10 +1,10 @@
 .main-wrap {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 5rem;
-  margin-top: var(--header-height);
+  margin: var(--header-height) 1rem 5rem;
   display: flex;
   flex-direction: column;
+  /* background: transparent;
+  backdrop-filter: blur(10px); */
+  padding: 1rem 0.5rem;
 }
 
 .main-title {
@@ -12,7 +12,7 @@
   font-weight: 900;
   letter-spacing: 1rem;
   line-height: 3rem;
-  color: var(--clr-secondary);
+  color: var(--clr-primary);
   margin: 1rem;
 }
 
@@ -27,13 +27,13 @@
 }
 
 .form-sec {
-  font-family: "Oswald", sans-serif;
+ font-family: "Fredericka the Great", serif;
   font-size: 1.2rem;
   text-transform: capitalize;
   background: rgba(245, 245, 240, 0.8);
   color: var(--clr-primary);
   backdrop-filter: blur(10px);
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
   border-radius: 1rem;
   align-self: center;
 }
@@ -45,19 +45,22 @@
 }
 
 .name-form input {
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   border-radius: 10px;
   outline: none;
   border: none;
 }
 
 .name-form button {
-  padding: 1rem 0.5rem;
-  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
   outline: none;
   border: none;
   border-radius: 10px;
   background-color: var(--clr-primary-light);
+  border: 1px solid var(--clr-primary);
+  align-self: center;
 }
 
 .form-wrap-select {
@@ -77,13 +80,22 @@ select {
 	border: none;
 	outline: none;
   width: 100%;
+  font-family: inherit;
+  background: var(--clr-primary);
+  color: var(--clr-primary-light);
 }
 
+
 .btn-select {
-	padding: 1rem 2rem;
-	font-size: 1.5rem;
-	align-self: center;
-	margin: 2rem;
+padding: 1rem 2rem;
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--clr-primary-light);
+  border: 1px solid var(--clr-primary);
+  align-self: center;
 }
 
 .trivia-sec {
@@ -91,7 +103,11 @@ select {
 	border-radius: 16px;
 	backdrop-filter: blur(10px);
 	padding: 2rem 1rem;
-  font-family: 'Oswald', sans-serif;
+ font-family: "Fredericka the Great", serif;
+}
+
+.trivia-sec ol {
+  padding: 1rem;
 }
 
 .trivia-que {
@@ -104,9 +120,16 @@ select {
   flex-wrap: wrap;
 }
 
+.answer-wrap label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 @media screen and (min-width: 1080px) {
   .main-title {
-    font-size: 15rem;
-    line-height: 13rem;
+    font-size: 10rem;
+    line-height: 9rem;
   }
 }

@@ -1,25 +1,39 @@
 :root {
-  --clr-primary:#01202A;
-  --clr-primary-light:#9AC5B7;
-  --clr-secondary:#F5F5F0;
-  
-  --clr-success:#02B461;
-  --clr-neutral:#F8FAB4;
-  --clr-warning:#F08787;
+  --clr-primary: #343a40  ;
+  --clr-primary-light: #e9ecef;
+  --clr-secondary: #f5f5f0;
 
-  --header-height:0;
+  --clr-success: #02b461;
+  --clr-neutral: #f8fab4;
+  --clr-warning: #f08787;
+
+  --header-height: 0;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "BBH Bogle", sans-serif;
-  background: url(https://cdn.pixabay.com/photo/2016/02/07/19/48/aurora-1185464_1280.jpg) no-repeat center / cover fixed;
+  font-family: "Fredericka the Great", serif;
+  background: #fff
+    url(https://cdn.pixabay.com/photo/2021/10/13/15/59/compass-6707008_1280.png)
+    no-repeat right center / 200px fixed;
+  /* background: #000 url(https://cdn.pixabay.com/photo/2022/06/08/23/24/doodles-7251441_1280.png) repeat center / contain fixed; */
 }
+/* 
+body::before {
+  content: " ";
+  background: #000 url(https://cdn.pixabay.com/photo/2022/02/25/09/23/background-7033807_1280.jpg) no-repeat center / cover fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(2px);
+} */
 
 button {
-  font-family: "BBH Bogle", sans-serif;
+  font-family: "Fredericka the Great", serif;
 }
 
 header {
@@ -27,7 +41,7 @@ header {
   top: 0;
   background: transparent;
   backdrop-filter: blur(10px);
-  color: var(--clr-secondary);
+  color: var(--clr-primary);
   width: 100%;
   font-weight: 400;
   font-size: 1.5rem;
@@ -41,7 +55,6 @@ nav {
   padding: 0 2rem;
 }
 
-
 footer {
   position: fixed;
   bottom: 0;
@@ -51,4 +64,13 @@ footer {
   padding: 1rem 3rem;
   color: #1a1a1a;
   font-weight: 400;
+}
+
+
+@media screen and (min-width:1080px) {
+  body{
+    background: #fff
+    url(https://cdn.pixabay.com/photo/2021/10/13/15/59/compass-6707008_1280.png)
+    no-repeat right center / 500px fixed;
+  }
 }

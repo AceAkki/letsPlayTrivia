@@ -8,20 +8,21 @@ export function TriviaSec(props) {
         {mainData.type === "boolean" ? (
           <div className="answer-wrap">
             <label htmlFor="true">
+              <input type="radio" name="answer" />
               True
-              <input type="radio" name="answer" />
             </label>
+            
             <label htmlFor="false">
-              False
               <input type="radio" name="answer" />
+              False
             </label>
           </div>
         ) : (
           <div className="answer-wrap">
             {[...dt.incorrect_answers, dt.correct_answer].sort(() => Math.random() - 0.4).map((ans) => (
               <label key={ans}>
-                {ans}
                 <input type="radio" name="answer" />
+                {ans}
               </label>
             ))}
             {/* {<label key={}>
