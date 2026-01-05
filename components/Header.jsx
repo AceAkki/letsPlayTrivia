@@ -1,6 +1,5 @@
 
 export default function Header(props) {
-    console.log(props)
     return (
         <>
         <header>
@@ -11,9 +10,9 @@ export default function Header(props) {
                     </h4>
                 </div>
                 <div>
-                    <h4>
+                    {/* <h4>
                         {(props.uName === "") ? null : props.uName }
-                    </h4>
+                    </h4> */}
                 </div>
             </nav>
         </header>
