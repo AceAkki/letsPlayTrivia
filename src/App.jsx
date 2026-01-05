@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   RouterProvider,
   createBrowserRouter,
@@ -25,9 +24,9 @@ import Login from "../pages/Login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/letsPlayTrivia" element={<Layout />}>
       <Route index element={<Main />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="login" element={<Login />} />
     </Route>
   )
 );

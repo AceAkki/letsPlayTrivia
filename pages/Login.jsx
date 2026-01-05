@@ -1,25 +1,27 @@
-  async function loader(formData) {
-      const inputUserName = formData.get("name");
-      try {
-      const response = await fetch(`https://opentdb.com/api_token.php?command=request`);
-      if (response) {
-        const data = await response.json();
-        console.log(data)
-        setUser(prev => {
-          return {...prev, userName:inputUserName, userToken:data.token}
-        }
-        );
-      }
-    } catch (error) {
-        console.log(error)
+import {Form} from "react"
+
+async function loader(formData) {
+  const inputUserName = formData.get("name");
+  try {
+    const response = await fetch(
+      `https://opentdb.com/api_token.php?command=request`
+    );
+    if (response) {
+      const data = await response.json();
+      console.log(data);
+      setUser((prev) => {
+        return { ...prev, userName: inputUserName, userToken: data.token };
+      });
     }
-      
+  } catch (error) {
+    console.log(error);
   }
+}
 
 export default function Login() {
   return (
     <section className="form-sec">
-      <Form action={props.func} className="name-form">
+      {/* <Form className="name-form">
         <label htmlFor="name">What's your name </label>
         <input
           id="name"
@@ -30,7 +32,7 @@ export default function Login() {
           required
         />
         <button> Submit</button>
-      </Form>
+      </Form> */}
     </section>
   );
 }

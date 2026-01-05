@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom"
 
 export default function Main() {
 
@@ -11,9 +11,11 @@ export default function Main() {
           </h1>
      
 
-      
+          <Link to="login">
+              Start Game
+          
+          </Link>
          
-            Start Game
       
 
       </main>
