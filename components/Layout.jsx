@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom'
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 // components
-import Header from './Header'
-import Footer from './Footer'
+import Header from "./Header";
+import Footer from "./Footer";
 
-export function Layout(){
-    useEffect(() => {
+export function Layout() {
+  useEffect(() => {
     let headerHeight =
       Math.floor(
         document.querySelector("header").getBoundingClientRect().height
@@ -13,14 +13,13 @@ export function Layout(){
     let root = document.documentElement.style;
     root.setProperty("--header-height", `${headerHeight}px`);
   }, []);
-    return (
-        <>
-        <Header />
-        <main>
-          <Outlet/>
-
-        </main>
-        <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
 }
