@@ -16,7 +16,7 @@ export function Layout() {
   return (
     <>
       <Header />
-      <main>
+       <main className="main-wrap">
         <Outlet />
       </main>
       <Footer />

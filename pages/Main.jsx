@@ -4,7 +4,7 @@ export default function Main() {
 
   return (
     <>
-      <main className="main-wrap">
+      <section>
     
           <h1 className="main-title">
             Let's Play Trivia!
@@ -18,7 +18,7 @@ export default function Main() {
          
       
 
-      </main>
+      </section>
     </>
   );
 }
