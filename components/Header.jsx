@@ -1,5 +1,8 @@
 import { NavLink, Link } from "react-router-dom"
 export default function Header() {
+    function hightlightActive(isActive) {
+        return isActive ? "active-nav" : null
+    }
     return (
         <>
         <header>
@@ -12,12 +15,9 @@ export default function Header() {
                     </Link>
                 </div>
                 <div>
-                    {/* <h4>
-                        {(props.uName === "") ? null : props.uName }
-                    </h4> */}
-                    <NavLink to="about"> About</NavLink>
-                    <NavLink> Play</NavLink>
-                    <NavLink to="login"> Login</NavLink>
+                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="about"> About</NavLink>
+                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="play"> Play</NavLink>
+                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="login"> Login</NavLink>
                 </div>
             </nav>
         </header>
