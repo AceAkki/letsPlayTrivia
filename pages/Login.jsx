@@ -1,4 +1,4 @@
-import {Form} from "react"
+import { Form } from "react-router-dom"
 
 async function loader(formData) {
   const inputUserName = formData.get("name");
@@ -21,7 +21,7 @@ async function loader(formData) {
 export default function Login() {
   return (
     <section className="form-sec">
-      {/* <Form className="name-form">
+      <Form className="name-form">
         <label htmlFor="name">What's your name </label>
         <input
           id="name"
@@ -32,7 +32,7 @@ export default function Login() {
           required
         />
         <button> Submit</button>
-      </Form> */}
+      </Form>
     </section>
   );
 }

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom'
 // components
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from './Header'
+import Footer from './Footer'
 
 export function Layout(){
     useEffect(() => {
@@ -16,7 +16,10 @@ export function Layout(){
     return (
         <>
         <Header />
-            <Outlet/>
+        <main>
+          <Outlet/>
+
+        </main>
         <Footer />
         </>
     )
