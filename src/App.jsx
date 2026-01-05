@@ -12,7 +12,7 @@ import { Layout } from "../components/Layout";
 // pages
 import Main from "../pages/Main";
 import Login from "../pages/Login";
-// import About from '../pages/About'
+import About from '../pages/About'
 // import Category from '../pages/Category'
 // import Trivia from '../pages/Trivia'
 
@@ -27,6 +27,7 @@ const router = createBrowserRouter(
     <Route path="/letsPlayTrivia" element={<Layout />}>
       <Route index element={<Main />} />
       <Route path="login" element={<Login />} />
+      <Route path="about" element={<About />} />
     </Route>
   )
 );

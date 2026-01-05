@@ -1,7 +1,9 @@
 export default function About(){
     return (
-        <h1>
+       <section>
+         <h1>
             About
         </h1>
+       </section>
     )
 }
