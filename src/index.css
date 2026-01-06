@@ -55,9 +55,20 @@ nav {
   padding: 0 2rem;
 }
 
-nav a {
+nav a, nav button {
   color: var(--clr-primary);
   text-decoration: none;
+  outline: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 footer {
