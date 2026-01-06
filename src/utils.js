@@ -5,10 +5,10 @@ export async function requireAuth(request) {
   let userData = JSON.parse(localStorage.getItem("user"));
   const isLoggedIn = userData ? true : false;
 
-  const response = redirect(`login?message=Login First&redirectTo=${url}`);
+  // const response = redirect(`login?message=Login First&redirectTo=${url}`);
 
   if (!isLoggedIn) {
-    return redirect("../login");
+    return redirect(`../login?message=Login First&redirectTo=${url}`);
     //return Object.defineProperty(response, "body", { value: true });
   }
   return null;

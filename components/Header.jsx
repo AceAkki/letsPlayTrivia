@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react"
 import { NavLink, Link } from "react-router-dom"
 export default function Header() {
-    let [username, setUserName] = useState(null);
+    // let [username, setUserName] = useState(null);
 
     function hightlightActive(isActive) {
         return isActive ? "active-nav" : null
     }
 
-    useEffect(()=> {
-        if (localStorage.getItem("user")) {
-            let {userName} = JSON.parse(localStorage.getItem("user"));
-            setUserName(userName);
-        }
-    }, [username])
-    
-    console.log(username)
+    // useEffect(()=> {
+    //     if (localStorage.getItem("user")) {
+    //         let {userName} = JSON.parse(localStorage.getItem("user"));
+    //         setUserName(userName);
+    //     }
+    // }, [localStorage])
+
     return (
         <>
         <header>
@@ -29,17 +28,19 @@ export default function Header() {
                 <div className="nav-items">
                     <NavLink className={({isActive}) => hightlightActive(isActive)} to="about"> About</NavLink>
                     <NavLink className={({isActive}) => hightlightActive(isActive)} to="play"> Play</NavLink>
-                    {
+                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> Login</NavLink>
+
+                    {/* {
                         username === null ?
-                        <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> Login</NavLink>
-                        : 
+                        :
                         <button onClick={() => {
                             localStorage.removeItem("user");
+                            console.log(localStorage.getItem("user"))
                             setUserName(null)
                         }}>
                             {username}
                         </button>
-                    }
+                    } */}
                 </div>
             </nav>
         </header>
