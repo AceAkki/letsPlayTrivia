@@ -55,6 +55,11 @@ nav {
   padding: 0 2rem;
 }
 
+nav a {
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+
 footer {
   position: fixed;
   bottom: 0;

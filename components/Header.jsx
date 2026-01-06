@@ -15,9 +15,9 @@ export default function Header() {
                     </Link>
                 </div>
                 <div>
-                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="about"> About</NavLink>
-                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="play"> Play</NavLink>
-                    <NavLink className={({isActive})=> hightlightActive(isActive)} to="login"> Login</NavLink>
+                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="about"> About</NavLink>
+                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="play"> Play</NavLink>
+                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> Login</NavLink>
                 </div>
             </nav>
         </header>

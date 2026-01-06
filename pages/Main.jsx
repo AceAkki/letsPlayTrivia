@@ -9,13 +9,18 @@ export default function Main() {
           <h1 className="main-title">
             Let's Play Trivia!
           </h1>
+
+
+          <div>
+            <Link to="login" className="start-btn">
+                Start Game
+            
+            </Link>
+          
+
+          </div>
      
 
-          <Link to="login">
-              Start Game
-          
-          </Link>
-         
       
 
       </section>

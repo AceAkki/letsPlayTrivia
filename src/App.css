@@ -13,7 +13,7 @@
   letter-spacing: 1rem;
   line-height: 3rem;
   color: var(--clr-primary);
-  margin: 1rem;
+  margin: 3rem 1rem;
 }
 
 .start-btn {
@@ -22,6 +22,8 @@
   border-radius: 1rem;
   padding: 1rem 3rem;
   background: rgba(255, 255, 255, 0.5);
+  color: var(--clr-primary);
+  text-decoration: none;
   backdrop-filter: blur(10px);
   align-self: center;
 }

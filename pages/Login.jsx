@@ -1,17 +1,17 @@
-import { Form } from "react-router-dom"
+import { Form, redirect } from "react-router-dom"
 
-async function loader(formData) {
-  const inputUserName = formData.get("name");
+export async function action({request}) {
   try {
+    const formData = await request.formData();
+    const {name} = Object.fromEntries(formData.entries());
     const response = await fetch(
       `https://opentdb.com/api_token.php?command=request`
     );
     if (response) {
       const data = await response.json();
       console.log(data);
-      setUser((prev) => {
-        return { ...prev, userName: inputUserName, userToken: data.token };
-      });
+      localStorage.setItem("user", JSON.stringify({userName: name, userToken: data.token}))
+      return redirect("../play")
     }
   } catch (error) {
     console.log(error);
@@ -21,7 +21,7 @@ async function loader(formData) {
 export default function Login() {
   return (
     <section className="form-sec">
-      <Form className="name-form">
+      <Form className="name-form" method="post">
         <label htmlFor="name">What's your name </label>
         <input
           id="name"

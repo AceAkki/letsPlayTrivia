@@ -1,4 +1,8 @@
-async function loader(category, difficulty, type, userToken) {
+import { useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  let {userToken, triviaSetup} = JSON.parse(localStorage.getItem("user"));
+  let {category, difficulty, type} = triviaSetup;
   let selectedCategory = category ? `&category=${category}` : "";
   let selectedDifficulty = difficulty ? `&difficulty=${difficulty}` : "";
   let selectedType = type ? `&type=${type}` : "";
@@ -13,7 +17,7 @@ async function loader(category, difficulty, type, userToken) {
     );
     if (response) {
       const data = await response.json();
-      return data;
+      return data.results;
     }
   } catch (error) {
     console.log(error);
@@ -21,7 +25,8 @@ async function loader(category, difficulty, type, userToken) {
 }
 
 export default function Trivia() {
-  let mainData = props.data.results;
+  let mainData = useLoaderData();
+  console.log(mainData)
   let elems = mainData.map((dt) => {
     return (
       <li className="trivia-que" key={dt.question}>
