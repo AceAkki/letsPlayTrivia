@@ -1,4 +1,4 @@
-import { Form, redirect } from "react-router-dom"
+import { Form, redirect, useSearchParams } from "react-router-dom"
 
 export async function action({request}) {
   try {
@@ -19,8 +19,11 @@ export async function action({request}) {
 }
 
 export default function Login() {
+  let [searchParam, setSearchParam] = useSearchParams();
+  console.log(searchParam.get("message"))
   return (
     <section className="form-sec">
+      <h5 style={{color:"red"}}>{searchParam.get("message") !== null ? searchParam.get("message") : null}</h5>
       <Form className="name-form" method="post">
         <label htmlFor="name">What's your name </label>
         <input
