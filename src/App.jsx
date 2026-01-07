@@ -18,6 +18,9 @@ import Category, {loader as CategoryLoader, action as CategoryAction} from '../p
 import Trivia, {loader as TriviaLoader} from '../pages/Trivia'
 import Result from '../pages/Result'
 
+import NotFound from "../pages/NotFound";
+import Error from "../pages/Error";
+
 import { requireAuth } from "./utils";
 
 //     <>
@@ -28,12 +31,13 @@ import { requireAuth } from "./utils";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/letsPlayTrivia" element={<Layout />}>
+    <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Main />} />
       <Route path="about" element={<About />} />
       <Route path="login" element={<Login />} action={LoginAction}/>
       <Route path="play"
         element={<><Outlet /> </>}
+        errorElement={<Error />}
         loader={async ({request}) => {
           return requireAuth(request)
         }}>
@@ -41,8 +45,11 @@ const router = createBrowserRouter(
         <Route path="trivia" element={<Trivia />} loader={TriviaLoader}/>
         <Route path="results" element={<Result />} />
       </Route>
+      <Route path="*" element={<NotFound />}/>
     </Route>
-  )
+  ), {
+    basename:import.meta.env.BASE_URL
+  }
 );
 
 export default function App() {
