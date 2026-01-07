@@ -64,6 +64,11 @@ nav a, nav button {
   font-size: 1.5rem;
 }
 
+.active-nav {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 .nav-items {
   display: flex;
   align-items: center;
