@@ -28,6 +28,13 @@ export default function Trivia() {
   let mainData = useLoaderData();
   console.log(mainData)
   let elems = mainData.map((dt) => {
+
+    function handleClick(event, correctAns){
+      const {name, value, classList  } = event.target;
+      console.log(event.target)
+      classList.add(value === correctAns ? "correct-ans" : "wrong-ans" );
+      
+    }
     return (
       <li className="trivia-que" key={dt.question}>
         <h4 dangerouslySetInnerHTML={{ __html: dt.question }} />
@@ -49,8 +56,10 @@ export default function Trivia() {
               .sort(() => Math.random() - 0.4)
               .map((ans) => (
                 <label key={ans}>
-                  <input type="radio" name={`answer ${dt.question}`} />
-                  {ans}
+                  <input type="radio" name={`answer ${dt.question}`} onClick={(e)=> handleClick(e, dt.correct_answer)}
+                    value={ans}/>
+                  {/* {ans} */}
+                  <span dangerouslySetInnerHTML={{ __html: ans }}/>
                 </label>
               ))}
           </div>

@@ -123,11 +123,23 @@ padding: 1rem 2rem;
   flex-wrap: wrap;
 }
 
+.answer-wrap label:has(input.correct-ans) {
+  background: var(--clr-success);
+  color: var(--clr-primary-light);
+}
+
+.answer-wrap label:has(input.wrong-ans) {
+  background: var(--clr-warning);
+  color: var(--clr-primary-light);
+}
+
 .answer-wrap label {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem 0.7rem 0.5rem 0.9rem;
 }
 
 @media screen and (min-width: 1080px) {
