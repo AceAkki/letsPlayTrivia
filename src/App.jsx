@@ -14,6 +14,8 @@ import { Layout } from "../components/Layout";
 import Main from "../pages/Main";
 import Login, {action as LoginAction} from "../pages/Login";
 import About from '../pages/About'
+
+import PlayLayout from "../components/PlayLayout";
 import Category, {loader as CategoryLoader, action as CategoryAction} from '../pages/Category'
 import Trivia, {loader as TriviaLoader} from '../pages/Trivia'
 import Result from '../pages/Result'
@@ -36,7 +38,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="login" element={<Login />} action={LoginAction}/>
       <Route path="play"
-        element={<><Outlet /> </>}
+        element={ <PlayLayout />}
         errorElement={<Error />}
         loader={async ({request}) => {
           return requireAuth(request)
