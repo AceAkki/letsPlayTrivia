@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 // components
 import Header from "./Header";
 import Footer from "./Footer";
 
 export function Layout() {
+  let [user, setUser] = useState(null)
   useEffect(() => {
     let headerHeight =
       Math.floor(
@@ -17,7 +18,7 @@ export function Layout() {
     <>
       <Header />
        <main className="main-wrap">
-        <Outlet />
+        <Outlet context={[user, setUser]}/>
       </main>
       <Footer />
     </>
