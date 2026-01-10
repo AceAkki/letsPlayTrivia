@@ -21,7 +21,8 @@ export async function action({ request }) {
         "user",
         JSON.stringify({ userName: name, userToken: data.token })
       );
-      return redirect("../play");
+      
+      // return redirect("../play");
     }
   } catch (error) {
     console.log(error);
