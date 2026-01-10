@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react"
 import { NavLink, Link } from "react-router-dom"
 export default function Header() {
-    // let [username, setUserName] = useState(null);
+    let localuser = JSON.parse(localStorage.getItem("user"));
 
     function hightlightActive(isActive) {
         return isActive ? "active-nav" : null
     }
 
-    // useEffect(()=> {
-    //     if (localStorage.getItem("user")) {
-    //         let {userName} = JSON.parse(localStorage.getItem("user"));
-    //         setUserName(userName);
-    //     }
-    // }, [localStorage])
-
+    console.log(localuser )
     return (
         <>
         <header>
@@ -28,19 +22,12 @@ export default function Header() {
                 <div className="nav-items">
                     <NavLink className={({isActive}) => hightlightActive(isActive)} to="about"> About</NavLink>
                     <NavLink className={({isActive}) => hightlightActive(isActive)} to="play"> Play</NavLink>
-                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> Login</NavLink>
+                    <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> 
+                        {localuser ? localuser.userName : "Login"}
+                    </NavLink>
+                    {/* fix the issue with lack of state */}
 
-                    {/* {
-                        username === null ?
-                        :
-                        <button onClick={() => {
-                            localStorage.removeItem("user");
-                            console.log(localStorage.getItem("user"))
-                            setUserName(null)
-                        }}>
-                            {username}
-                        </button>
-                    } */}
+
                 </div>
             </nav>
         </header>

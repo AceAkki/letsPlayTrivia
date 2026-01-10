@@ -33,6 +33,7 @@ export async function action({ request }) {
 export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
   let [user, setUser] = useOutletContext();
+  
   let navigate = useNavigate();
   let localuser = JSON.parse(localStorage.getItem("user"));
 
