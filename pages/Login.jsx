@@ -28,7 +28,6 @@ export async function action({ request }) {
   }
 }
 
-function logOut() {}
 
 export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
