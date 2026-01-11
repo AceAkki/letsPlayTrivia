@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import {
   Form,
   redirect,
   useSearchParams,
   useOutletContext,
   useNavigate,
+  useActionData,
 } from "react-router-dom";
 
 export async function action({ request }) {
@@ -17,11 +18,8 @@ export async function action({ request }) {
     if (response) {
       const data = await response.json();
       console.log(data);
-      localStorage.setItem(
-        "user",
-        JSON.stringify({ userName: name, userToken: data.token })
-      );
-      
+      return { name, data };
+
       // return redirect("../play");
     }
   } catch (error) {
@@ -29,37 +27,48 @@ export async function action({ request }) {
   }
 }
 
-
 export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
   let [user, setUser] = useOutletContext();
-  
+  let userData = useActionData();
+
   let navigate = useNavigate();
-  let localuser = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+    if (!userData) return;
+    let { name, data } = userData;
+    setUser({
+      userName: name,
+      userToken: userData.data.token,
+    });
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ userName: name, userToken: data.token })
+    );
+  }, [userData]);
+
+  function logout() {
+    localStorage.removeItem("user");
+    navigate("/");
+    setUser(null);
+  }
 
   return (
     <>
-      {localuser ? (
+      {user ? (
         <div className="user-screen">
-          <h2>Hello {localuser.userName}! </h2>
+          <h2>Hello {user.userName}! </h2>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo
             itaque, ipsam, sequi distinctio enim eos minus dolores ut architecto
             mollitia ad labore unde quam modi voluptas consectetur qui officia
             quibusdam.
           </p>
-          <button
-            onClick={() => {
-              localStorage.removeItem("user");
-              navigate("/");
-            }}
-          >
-            Log Out
-          </button>
+          <button onClick={logout}>Log Out</button>
         </div>
       ) : (
         <section className="form-sec">
-          <h5 style={{ color: "red" }}>
+          <h5 style={{ color: "var(--clr-warning)" }}>
             {searchParam.get("message") !== null
               ? searchParam.get("message")
               : null}

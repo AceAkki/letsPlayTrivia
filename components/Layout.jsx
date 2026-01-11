@@ -16,7 +16,7 @@ export function Layout() {
   }, []);
   return (
     <>
-      <Header />
+      <Header userData={user}/>
        <main className="main-wrap">
         <Outlet context={[user, setUser]}/>
       </main>

@@ -21,24 +21,25 @@
   border: 1px solid var(--clr-primary);
   border-radius: 1rem;
   padding: 1rem 3rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--clr-secondary);
   color: var(--clr-primary);
   text-decoration: none;
   backdrop-filter: blur(10px);
   align-self: center;
 }
 
+/* Login Page */
 .form-sec {
- font-family: "Fredericka the Great", serif;
+  font-family: "Fredericka the Great", serif;
   font-size: 1.2rem;
   text-transform: capitalize;
-  background: rgba(245, 245, 240, 0.8);
+  background: var(--clr-secondary);
   color: var(--clr-primary);
   backdrop-filter: blur(10px);
   padding: 2rem 3rem;
   border-radius: 1rem;
   align-self: center;
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .name-form {
@@ -48,14 +49,15 @@
 }
 
 .name-form input {
-  padding: 1rem;
+  padding: 1.2rem 1rem;
   border-radius: 10px;
+  border: 1px solid var(--clr-primary-light);
+  color: var(--clr-primary-light);
   outline: none;
-  border: none;
 }
 
-.name-form button {
-  padding: 0.5rem 1rem;
+.name-form button, .user-screen button {
+  padding: 1rem 2rem;
   margin: 1rem 0 0;
   font-size: 1.1rem;
   outline: none;
@@ -63,14 +65,30 @@
   border-radius: 10px;
   background-color: var(--clr-primary-light);
   border: 1px solid var(--clr-primary);
+  color: var(--clr-secondary);
   align-self: center;
 }
+
+.user-screen {
+  width: 100%;
+}
+
+/* Login Page */
+
+
+/* Category Page */
+
 
 .form-wrap-select {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-self: center;
+  background: var(--clr-secondary-rgb);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--clr-primary-light);
+  border-radius: 10px;
+  padding: 2rem;
 }
 
 .select-wrap {
@@ -78,19 +96,18 @@
 }
 
 select {
-	padding: 1rem 2rem;
-	border-radius: 16px;
-	border: none;
-	outline: none;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  outline: none;
   width: 100%;
   font-family: inherit;
-  background: var(--clr-primary);
+  background: var(--clr-secondary);
   color: var(--clr-primary-light);
+  border: 2px solid var(--clr-primary-light);
 }
 
-
 .btn-select {
-padding: 1rem 2rem;
+  padding: 1rem 2rem;
   margin: 1rem 0 0;
   font-size: 1.1rem;
   outline: none;
@@ -98,15 +115,23 @@ padding: 1rem 2rem;
   border-radius: 10px;
   background-color: var(--clr-primary-light);
   border: 1px solid var(--clr-primary);
+  color: var(--clr-secondary);
   align-self: center;
 }
 
+/* Category Page */
+
+
+/* Trivia Page */
+
+
 .trivia-sec {
-	background: rgba(255,255,255, 0.8);
-	border-radius: 16px;
-	backdrop-filter: blur(10px);
-	padding: 2rem 1rem;
- font-family: "Fredericka the Great", serif;
+  background: var(--clr-secondary-rgb);
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, var(--clr-secondary-rgb) -6px -2px 16px 0px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  font-family: "Fredericka the Great", serif;
 }
 
 .trivia-sec ol {
@@ -143,14 +168,22 @@ padding: 1rem 2rem;
   transition: all 0.5s ease-in-out;
 }
 
-.user-screen {
-  width: 30vw;
-  margin: 0 30vw;
-}
+/* Trivia Page */
 
 @media screen and (min-width: 1080px) {
   .main-title {
     font-size: 10rem;
     line-height: 9rem;
   }
+
+  /* Login Page */
+  .form-sec {
+    width: 20vw;
+  }
+  .user-screen{
+    width: 30vw;
+    margin: 0 30vw;
+  }
+
+  /* Login Page */
 }

@@ -9,13 +9,13 @@ import {
 import "./App.css";
 
 import { Layout } from "../components/Layout";
+import PlayLayout from "../components/PlayLayout";
 
 // pages
 import Main from "../pages/Main";
 import Login, {action as LoginAction} from "../pages/Login";
 import About from '../pages/About'
 
-import PlayLayout from "../components/PlayLayout";
 import Category, {loader as CategoryLoader, action as CategoryAction} from '../pages/Category'
 import Trivia, {loader as TriviaLoader} from '../pages/Trivia'
 import Result from '../pages/Result'
