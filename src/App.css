@@ -123,7 +123,18 @@ select {
 
 
 /* Trivia Page */
-
+.user-status-sec {
+  background: var(--clr-secondary-rgb);
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, var(--clr-secondary-rgb) -6px -2px 16px 0px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  font-family: "Fredericka the Great", serif;
+  margin: 2rem 0;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 10;
+}
 
 .trivia-sec {
   background: var(--clr-secondary-rgb);
@@ -132,6 +143,7 @@ select {
   backdrop-filter: blur(10px);
   padding: 2rem 3rem;
   font-family: "Fredericka the Great", serif;
+  position: relative;
 }
 
 .trivia-sec ol {
@@ -140,22 +152,24 @@ select {
 
 .trivia-que {
   font-size: 1.1rem;
+  margin: 1.2rem 0;
 }
 
 .answer-wrap {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin: 1.1rem 0;
 }
 
 .answer-wrap label:has(input.correct-ans) {
   background: var(--clr-success);
-  color: var(--clr-primary-light);
+  color: var(--clr-secondary);
 }
 
 .answer-wrap label:has(input.wrong-ans) {
   background: var(--clr-warning);
-  color: var(--clr-primary-light);
+  color: var(--clr-secondary);
 }
 
 .answer-wrap label {

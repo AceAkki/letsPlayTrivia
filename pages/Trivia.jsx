@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 
 export async function loader() {
   let { userToken, triviaSetup } = JSON.parse(localStorage.getItem("user"));
@@ -26,6 +26,8 @@ export async function loader() {
 
 export default function Trivia() {
   let mainData = useLoaderData();
+  let [user, setUser] = useOutletContext();
+  console.log(user)
   console.log(mainData);
   let localuser = JSON.parse(localStorage.getItem("user"));
   let elems = mainData.map((dt) => {
@@ -73,8 +75,8 @@ export default function Trivia() {
 
   return (
     <>
-      <section>
-        <h2>Welcome {localuser.userName} !</h2>
+      <section className="user-status-sec">
+        <h1>Welcome {user.userName} !</h1>
         <p>Your current score : 0</p>
       </section>
       <section className="trivia-sec">

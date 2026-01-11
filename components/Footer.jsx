@@ -4,10 +4,15 @@ export default function Footer() {
         <>
         <footer>
             <nav>
-                <div className="flex-center">
+                <p>
                     {new Date().toLocaleDateString()}
+                </p>
+              
+                <a href="https://github.com/AceAkki" target="_blank" className="normal-link">
+                    letsPlayTrivia - AceAkki
+                </a>
                     {/* <img src={ReactLogo} alt="logo" /> */}
-                </div>
+               
             </nav>
         </footer>
         </>

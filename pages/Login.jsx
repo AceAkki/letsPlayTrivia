@@ -64,7 +64,7 @@ export default function Login() {
             mollitia ad labore unde quam modi voluptas consectetur qui officia
             quibusdam.
           </p>
-          <button onClick={logout}>Log Out</button>
+          <button onClick={logout}>Delete All & Log Out</button>
         </div>
       ) : (
         <section className="form-sec">

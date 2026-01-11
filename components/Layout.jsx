@@ -5,12 +5,16 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export function Layout() {
-  let [user, setUser] = useState(null)
+  let [user, setUser] = useState(()=> {
+    let userData = localStorage.getItem("user");
+    let initialValue = JSON.parse(userData);
+    return initialValue || null;
+  })
   useEffect(() => {
     let headerHeight =
       Math.floor(
         document.querySelector("header").getBoundingClientRect().height
-      ) + 50;
+      ) + 10;
     let root = document.documentElement.style;
     root.setProperty("--header-height", `${headerHeight}px`);
   }, []);

@@ -12,7 +12,7 @@ export default function Header(props) {
                 <div>
                     <Link to="">
                         <h2>
-                            Trivia Game
+                            letsPlayTrivia
                         </h2>
                     </Link>
                 </div>
