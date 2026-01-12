@@ -24,13 +24,9 @@ export async function loader() {
   }
 }
 
-export default function Trivia() {
-  let mainData = useLoaderData();
-  let [user, setUser] = useOutletContext();
-  console.log(user)
-  console.log(mainData);
-  let localuser = JSON.parse(localStorage.getItem("user"));
-  let elems = mainData.map((dt) => {
+function RenderQuestions(props) {
+  let mainData = props.allData
+ return mainData.map((dt) => {
     function handleClick(event, correctAns) {
       const { name, value, classList } = event.target;
       console.log(event.target);
@@ -39,19 +35,6 @@ export default function Trivia() {
     return (
       <li className="trivia-que" key={dt.question}>
         <h4 dangerouslySetInnerHTML={{ __html: dt.question }} />
-        {/* {mainData.type === "boolean" ? (
-          <div className="answer-wrap">
-            <label htmlFor="true">
-              <input type="radio" name={`answer ${dt.question}`} />
-              True
-            </label>
-
-            <label htmlFor="false">
-              <input type="radio" name={`answer ${dt.question}`} />
-              False
-            </label>
-          </div>
-        ) : ( */}
         <div className="answer-wrap">
           {[...dt.incorrect_answers, dt.correct_answer]
             .sort(() => Math.random() - 0.4)
@@ -68,10 +51,14 @@ export default function Trivia() {
               </label>
             ))}
         </div>
-        {/* )} */}
       </li>
     );
   });
+}
+
+export default function Trivia() {
+  let mainData = useLoaderData();
+  let [user, setUser] = useOutletContext();
 
   return (
     <>
@@ -80,7 +67,7 @@ export default function Trivia() {
         <p>Your current score : 0</p>
       </section>
       <section className="trivia-sec">
-        <ol>{elems}</ol>
+        <ol>{<RenderQuestions allData={mainData}/>}</ol>
       </section>
     </>
   );

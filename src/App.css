@@ -87,7 +87,7 @@
   background: var(--clr-secondary-rgb);
   backdrop-filter: blur(10px);
   border: 1px solid var(--clr-primary-light);
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 2rem;
 }
 
@@ -124,7 +124,8 @@ select {
 
 /* Trivia Page */
 .user-status-sec {
-  background: var(--clr-secondary-rgb);
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, var(--clr-secondary-rgb) -6px -2px 16px 0px;
   border-radius: 16px;
   backdrop-filter: blur(10px);

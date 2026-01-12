@@ -8,6 +8,7 @@ import {
   useActionData,
 } from "react-router-dom";
 
+// requests token and and return form value and fetched
 export async function action({ request }) {
   try {
     const formData = await request.formData();
@@ -31,7 +32,6 @@ export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
   let [user, setUser] = useOutletContext();
   let userData = useActionData();
-
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function Login() {
       "user",
       JSON.stringify({ userName: name, userToken: data.token })
     );
+    setTimeout(() => {
+      navigate("/play")
+    }, 5000)
   }, [userData]);
 
   function logout() {
