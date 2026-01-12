@@ -42,26 +42,35 @@ button {
   font-family: "Fredericka the Great", serif;
 }
 
-header {
+header nav {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: all 0.6s ease-in-out;
+}
+
+.header-wrap {
+  border-radius: 16px;
+  margin: 1rem 2rem;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  gap: 1rem;
+
   background: transparent;
   backdrop-filter: blur(10px);
   color: var(--clr-primary);
   width: 100%;
   font-weight: 400;
   font-size: 1.5rem;
-  z-index: 10;
-  padding: 1rem 0;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 2rem;
-  gap: 1rem;
+  border-radius: 16px;
 }
 
 nav a {
@@ -112,7 +121,7 @@ footer {
       no-repeat right center / 500px fixed;
   }
 
-  header nav, footer nav {
+  .nav-wrap  {
     flex-direction: row;
     padding: 1rem 2rem;
   }

@@ -9,7 +9,8 @@ export default function Header(props) {
         <>
         <header>
             <nav>
-                <div>
+                <div className="nav-wrap">
+                    <div>
                     <Link to="">
                         <h2>
                             letsPlayTrivia
@@ -22,6 +23,7 @@ export default function Header(props) {
                     <NavLink className={({isActive}) => hightlightActive(isActive)} to="login"> 
                         {userData ? userData.userName : "Login"}
                     </NavLink>
+                </div>
                 </div>
             </nav>
         </header>

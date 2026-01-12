@@ -4,15 +4,18 @@ export default function Footer() {
         <>
         <footer>
             <nav>
-                <p>
-                    {new Date().toLocaleDateString()}
-                </p>
-              
-                <a href="https://github.com/AceAkki" target="_blank" className="normal-link">
-                    letsPlayTrivia - AceAkki
-                </a>
-                    {/* <img src={ReactLogo} alt="logo" /> */}
-               
+                <div className="nav-wrap">
+                    <p>
+                        {new Date().toLocaleDateString()}
+                    </p>
+                
+                    <a href="https://github.com/AceAkki" target="_blank" className="normal-link">
+                        letsPlayTrivia - AceAkki
+                    </a>
+                        {/* <img src={ReactLogo} alt="logo" /> */}
+                
+
+                </div>
             </nav>
         </footer>
         </>

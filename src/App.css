@@ -4,7 +4,7 @@
   flex-direction: column;
   /* background: transparent;
   backdrop-filter: blur(10px); */
-  padding: 1rem 0.5rem;
+  padding: 0.4rem 0.5rem;
 }
 
 .main-title {
@@ -56,7 +56,8 @@
   outline: none;
 }
 
-.name-form button, .user-screen button {
+.name-form button,
+.user-screen button {
   padding: 1rem 2rem;
   margin: 1rem 0 0;
   font-size: 1.1rem;
@@ -75,9 +76,7 @@
 
 /* Login Page */
 
-
 /* Category Page */
-
 
 .form-wrap-select {
   display: flex;
@@ -121,25 +120,28 @@ select {
 
 /* Category Page */
 
-
 /* Trivia Page */
 .user-status-sec {
   background: var(--clr-primary);
   color: var(--clr-secondary);
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, var(--clr-secondary-rgb) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    var(--clr-secondary-rgb) -6px -2px 16px 0px;
   border-radius: 16px;
   backdrop-filter: blur(10px);
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   font-family: "Fredericka the Great", serif;
-  margin: 2rem 0;
+  margin: 0.2rem 0 0.9rem;
   position: sticky;
   top: var(--header-height);
   z-index: 10;
+  transition: all 0.6s ease-in-out;
+  width: 100%;
 }
 
 .trivia-sec {
   background: var(--clr-secondary-rgb);
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, var(--clr-secondary-rgb) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    var(--clr-secondary-rgb) -6px -2px 16px 0px;
   border-radius: 16px;
   backdrop-filter: blur(10px);
   padding: 2rem 3rem;
@@ -195,10 +197,16 @@ select {
   .form-sec {
     width: 20vw;
   }
-  .user-screen{
+  .user-screen {
     width: 30vw;
     margin: 0 30vw;
   }
 
   /* Login Page */
+
+  .user-status-sec.short-wrap {
+    width: 20%;
+    align-self: flex-end;
+    transition: all 0.6s ease-in-out;
+  }
 }
