@@ -165,12 +165,12 @@ select {
   margin: 1.1rem 0;
 }
 
-.answer-wrap label:has(input.correct-ans) {
+.answer-wrap label.correct-ans {
   background: var(--clr-success);
   color: var(--clr-secondary);
 }
 
-.answer-wrap label:has(input.wrong-ans) {
+.answer-wrap label.wrong-ans {
   background: var(--clr-warning);
   color: var(--clr-secondary);
 }

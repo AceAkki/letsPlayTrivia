@@ -26,7 +26,7 @@ export function Layout() {
         document.querySelector(".user-status-sec").classList.add("short-wrap");
       } else {
         document.querySelector("header nav").classList.remove("header-wrap");
-        document.querySelector(".user-status-sec").classList.remove("short-wrap");
+        // document.querySelector(".user-status-sec").classList.remove("short-wrap");
       }
     })
   }, []);

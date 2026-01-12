@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLoaderData, useOutletContext } from "react-router-dom";
 
 export async function loader() {
@@ -17,34 +18,47 @@ export async function loader() {
     );
     if (response) {
       const data = await response.json();
-      return data.results;
+      let sortedData = data.results.map(dt => {
+        return {...dt, sortedAns:[...dt.incorrect_answers, dt.correct_answer].sort(() => Math.random() - 0.4)}
+      })
+      return sortedData;
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-function RenderQuestions(props) {
-  let mainData = props.allData
- return mainData.map((dt) => {
-    function handleClick(event, correctAns) {
-      const { name, value, classList } = event.target;
-      console.log(event.target);
-      classList.add(value === correctAns ? "correct-ans" : "wrong-ans");
-    }
+function RenderQuestions({ allData, state }) {
+  let [answers, setAnswers] = state;
+
+  function handleClick(que, userAns, correctAns) {
+    console.log(userAns, correctAns)
+    setAnswers(oldAns => {
+      return [...oldAns, {question:que, ans:userAns, status:userAns !== correctAns ? false: true}]
+    })
+  }
+
+  let answeredQue = answers.map(obj => obj.question);
+  
+  function checkRightAns(currentAns, que) {
+    if (!answers.find(obj => obj.question === que)) return
+    let queObj = answers.find(obj => obj.question === que)
+    if (queObj.ans !== currentAns) return
+    return answeredQue.includes(que) && queObj.status ? "correct-ans" : "wrong-ans"  
+  }
+  return allData.map(dt => {
     return (
       <li className="trivia-que" key={dt.question}>
         <h4 dangerouslySetInnerHTML={{ __html: dt.question }} />
         <div className="answer-wrap">
-          {[...dt.incorrect_answers, dt.correct_answer]
-            .sort(() => Math.random() - 0.4)
-            .map((ans) => (
-              <label key={ans}>
+          {dt.sortedAns.map((ans) => (
+              <label key={ans} className={checkRightAns(ans, dt.question)}>
                 <input
                   type="radio"
                   name={`answer ${dt.question}`}
-                  onClick={(e) => handleClick(e, dt.correct_answer)}
+                  onClick={(e) => handleClick(dt.question, ans, dt.correct_answer)}
                   value={ans}
+                  disabled={answeredQue.includes(dt.question) ? true : false}
                 />
                 {/* {ans} */}
                 <span dangerouslySetInnerHTML={{ __html: ans }} />
@@ -59,6 +73,7 @@ function RenderQuestions(props) {
 export default function Trivia() {
   let mainData = useLoaderData();
   let [user, setUser] = useOutletContext();
+  let [answers, setAnswers] = useState([]);
 
   return (
     <>
@@ -67,7 +82,7 @@ export default function Trivia() {
         <p>Your current score : 0</p>
       </section>
       <section className="trivia-sec">
-        <ol>{<RenderQuestions allData={mainData}/>}</ol>
+        <ol>{<RenderQuestions allData={mainData} state={[answers, setAnswers]}/>}</ol>
       </section>
     </>
   );
