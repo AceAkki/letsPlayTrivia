@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom"
+import {Link, useOutletContext} from "react-router-dom"
 
 export default function Main() {
-
+ let [user, setUser] = useOutletContext();
   return (
     <>
       <section>
@@ -12,7 +12,7 @@ export default function Main() {
 
 
           <div>
-            <Link to="login" className="start-btn">
+            <Link to={user ? "play" : "login"} className="start-btn">
                 Start Game
             
             </Link>

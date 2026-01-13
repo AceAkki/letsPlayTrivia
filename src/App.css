@@ -28,6 +28,22 @@
   align-self: center;
 }
 
+.about-sec {
+   margin: 1rem;
+}
+.about-wrap {
+  background: var(--clr-secondary-rgb);
+  backdrop-filter: blur(16px);
+  line-height: 1.7rem;
+  padding: 2rem 0.5rem;
+  border-radius: 16px;
+  font-size: 1.2rem;
+}
+
+.about-wrap p {
+  margin: 1rem 0;
+}
+
 /* Login Page */
 .form-sec {
   font-family: "Fredericka the Great", serif;
@@ -74,6 +90,11 @@
   width: 100%;
 }
 
+.user-screen .user-welcom-para {
+  margin: 1rem;
+  line-height: 1.7rem;
+}
+
 /* Login Page */
 
 /* Category Page */
@@ -100,6 +121,7 @@ select {
   outline: none;
   width: 100%;
   font-family: inherit;
+  font-size: 1rem;
   background: var(--clr-secondary);
   color: var(--clr-primary-light);
   border: 2px solid var(--clr-primary-light);
@@ -175,6 +197,16 @@ select {
   color: var(--clr-secondary);
 }
 
+.answer-wrap label.wrong-ans {
+  background: var(--clr-warning);
+  color: var(--clr-secondary);
+}
+
+.answer-wrap label.show-ans {
+  background: var(--clr-neutral);
+  color: var(--clr-primary);
+}
+
 .answer-wrap label {
   display: flex;
   align-items: center;
@@ -187,10 +219,22 @@ select {
 
 /* Trivia Page */
 
+.result-wrap {
+  margin: 2rem;
+}
+
+.result-wrap .result-text {
+  font-weight: 400;
+}
+
 @media screen and (min-width: 1080px) {
   .main-title {
     font-size: 10rem;
     line-height: 9rem;
+  }
+
+  .about-wrap {
+    margin: 1rem;
   }
 
   /* Login Page */
