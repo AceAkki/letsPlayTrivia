@@ -18,7 +18,6 @@ import About from '../pages/About'
 
 import Category, {loader as CategoryLoader, action as CategoryAction} from '../pages/Category'
 import Trivia, {loader as TriviaLoader} from '../pages/Trivia'
-import Result from '../pages/Result'
 
 import NotFound from "../pages/NotFound";
 import Error from "../pages/Error";
@@ -45,7 +44,6 @@ const router = createBrowserRouter(
         }}>
         <Route index element={<Category />} loader={CategoryLoader} action={CategoryAction}/>
         <Route path="trivia" element={<Trivia />} loader={TriviaLoader}/>
-        <Route path="results" element={<Result />} />
       </Route>
       <Route path="*" element={<NotFound />}/>
     </Route>

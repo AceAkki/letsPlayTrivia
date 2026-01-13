@@ -204,9 +204,9 @@ select {
 
   /* Login Page */
 
-  .user-status-sec.short-wrap {
+  /* .user-status-sec.short-wrap {
     width: 20%;
     align-self: flex-end;
     transition: all 0.6s ease-in-out;
-  }
+  } */
 }

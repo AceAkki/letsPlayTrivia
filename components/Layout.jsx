@@ -23,7 +23,7 @@ export function Layout() {
     window.addEventListener("scroll", ()=> {
       if (scrollY > 20) {
         document.querySelector("header nav").classList.add("header-wrap");
-        document.querySelector(".user-status-sec").classList.add("short-wrap");
+        // document.querySelector(".user-status-sec").classList.add("short-wrap");
       } else {
         document.querySelector("header nav").classList.remove("header-wrap");
         // document.querySelector(".user-status-sec").classList.remove("short-wrap");
