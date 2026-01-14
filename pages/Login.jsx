@@ -41,7 +41,7 @@ export default function Login() {
       userName: name,
       userToken: userData.data.token,
     });
-    localStorage.setItem(
+    sessionStorage.setItem(
       "user",
       JSON.stringify({ userName: name, userToken: data.token })
     );
@@ -51,7 +51,7 @@ export default function Login() {
   }, [userData]);
 
   function logout() {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     navigate("/");
     setUser(null);
   }

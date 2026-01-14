@@ -5,7 +5,7 @@ import RenderQuestions from "../components/RenderQuestions";
 import { fetchQuestions } from "../src/utils"
 
 export async function loader() {
-  let { userToken, triviaSetup } = JSON.parse(localStorage.getItem("user"));
+  let { userToken, triviaSetup } = JSON.parse(sessionStorage.getItem("user"));
   let { category, difficulty, type } = triviaSetup;
   let selectedCategory = category ? `&category=${category}` : "";
   let selectedDifficulty = difficulty ? `&difficulty=${difficulty}` : "";
