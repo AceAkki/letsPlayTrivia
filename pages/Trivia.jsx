@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import { useState, Suspense} from "react";
+import { useLoaderData, useOutletContext,Await  } from "react-router-dom";
 
 import RenderQuestions from "../components/RenderQuestions";
 import { fetchQuestions } from "../src/utils"
 
 export async function loader() {
   let { userToken, triviaSetup } = JSON.parse(sessionStorage.getItem("user"));
+  console.log(JSON.parse(sessionStorage.getItem("user")))
   let { category, difficulty, type } = triviaSetup;
   let selectedCategory = category ? `&category=${category}` : "";
   let selectedDifficulty = difficulty ? `&difficulty=${difficulty}` : "";
@@ -30,9 +31,11 @@ export default function Trivia() {
     answers.length > 0 ? answers.filter((ans) => !ans.status).length : 0;
   return (
     <>
-    { 
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <Await resolve={mainData}>
+          { (queData) =>
       queCount > answers.length ?
-        <>
+      <>
           <section className="user-status-sec">
             <h1>Welcome {user.userName} !</h1>
             <p>Your current score : {winCount}</p>
@@ -40,8 +43,9 @@ export default function Trivia() {
           </section>
           <section className="trivia-sec">
             {
+      
               <RenderQuestions
-              allData={mainData}
+              allData={queData}
               state={[answers, setAnswers]}
               index={currentIndex}
               />
@@ -97,6 +101,10 @@ export default function Trivia() {
             </div>
         </section>
     } 
+      </Await>
+    </Suspense>
+    
+    
     </>
   );
 }
