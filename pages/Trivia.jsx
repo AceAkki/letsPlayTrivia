@@ -28,7 +28,6 @@ export default function Trivia() {
     answers.length > 0 ? answers.filter((ans) => ans.status).length : 0;
   let lostCount =
     answers.length > 0 ? answers.filter((ans) => !ans.status).length : 0;
-  console.log(queCount)
   return (
     <>
     { 
