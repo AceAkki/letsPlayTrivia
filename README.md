@@ -1,16 +1,24 @@
-# React + Vite
+# 🧠 letsPlayTrivia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic, category-driven trivia application built with **React** and **React Router 6**. This app leverages the Open Trivia Database API to provide a personalized quiz experience with real-time scoring and progress tracking.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+* **Customizable Quizzes:** Filter by Category (Science, History, Art, etc.), Difficulty (Easy, Medium, Hard), and Question Type (Multiple Choice or True/False).
+* **Modern Data Fetching:** Uses React Router **Loaders** and **Actions** for efficient data management and seamless navigation.
+* **Asynchronous UI:** Implements `Suspense` and `Await` to handle API loading states gracefully.
+* **Session Persistence:** Saves user tokens and trivia preferences in `sessionStorage` to maintain progress.
+* **Dynamic Scoring:** Tracks wins and losses in real-time and provides a personalized summary based on performance.
+* **Infinite Play:** Options to restart the game or load "More Questions" (up to 50) without losing your current progress.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend Library:** React 18/19 (Functional Components & Hooks)
+* **Data Routing:** React Router 6.4+ (Utilizing `createBrowserRouter`, `loaders`, and `actions`)
+* **State Management:** React Context API & `useOutletContext` for localized global state.
+* **Asynchronous Patterns:** `Suspense` and `Await` for non-blocking UI rendering.
+* **Persistence Layer:** Browser `sessionStorage` for secure, tab-specific session tracking.
+* **Styling:** CSS3 with Dynamic Variables.
