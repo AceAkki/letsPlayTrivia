@@ -13,3 +13,28 @@ export async function requireAuth(request) {
   }
   return null;
 }
+
+export async function fetchQuestions({selectedCategory, selectedDifficulty, selectedType, generatedToken}) {
+    try {
+    const response = await fetch(
+      `https://opentdb.com/api.php?amount=50${selectedCategory}${selectedDifficulty}${selectedType}${generatedToken}`
+    );
+    console.log(
+      `https://opentdb.com/api.php?amount=50${selectedCategory}${selectedDifficulty}${selectedType}${generatedToken}`
+    );
+    if (response) {
+      const data = await response.json();
+      let sortedData = data.results.map((dt) => {
+        return {
+          ...dt,
+          sortedAns: [...dt.incorrect_answers, dt.correct_answer].sort(
+            () => Math.random() - 0.4
+          ),
+        };
+      });
+      return sortedData;
+    }
+  } catch (error) {
+    return error;
+  }
+}
