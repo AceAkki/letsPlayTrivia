@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import { NavLink, Link } from "react-router-dom"
-export default function Header(props) {
-    let userData = props.userData;
+export default function Header({userData, navRef}) {
     function hightlightActive(isActive) {
         return `nav-item ${isActive ? "active-nav" : ""}`
     }
     return (
         <>
         <header>
-            <nav>
+            <nav ref={navRef}>
                 <div className="nav-wrap">
                     <div>
                     <Link to="">

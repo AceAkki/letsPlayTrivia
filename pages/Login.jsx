@@ -16,6 +16,8 @@ export async function action({ request }) {
     const response = await fetch(
       `https://opentdb.com/api_token.php?command=request`
     );
+    const registerDate = new Date().getTime();
+    const expiryDate = registerDate + 60 * 60 * 1000 * 6;
     if (response) {
       const data = await response.json();
       console.log(data);
