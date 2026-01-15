@@ -21,7 +21,7 @@ export async function action({ request }) {
     if (response) {
       const data = await response.json();
       console.log(data);
-      return { name, data };
+      return { name, data , expiryDate};
 
       // return redirect("../play");
     }
@@ -38,14 +38,15 @@ export default function Login() {
 
   useEffect(() => {
     if (!userData) return;
-    let { name, data } = userData;
+    let { name, data, expiryDate } = userData;
     setUser({
       userName: name,
-      userToken: userData.data.token,
+      userToken: data.token,
+      expireTime : expiryDate
     });
     sessionStorage.setItem(
       "user",
-      JSON.stringify({ userName: name, userToken: data.token })
+      JSON.stringify({ userName: name, userToken: data.token, expireTime:expiryDate })
     );
     setTimeout(() => {
       navigate("/play");

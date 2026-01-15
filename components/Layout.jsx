@@ -12,6 +12,7 @@ export function Layout() {
   let [user, setUser] = useState(()=> {
     let userData = sessionStorage.getItem("user");
     let initialValue = JSON.parse(userData);
+    if (userData?.expireTime < new Date().getTime()) return null;
     return initialValue || null;
   })
 
