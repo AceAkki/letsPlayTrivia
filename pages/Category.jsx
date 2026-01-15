@@ -4,10 +4,9 @@ import {useLoaderData, Await, Form, redirect } from "react-router-dom";
 export async function action({ request }) {
   let formData  = await request.formData();
   let { category, type, difficulty } = Object.fromEntries(formData.entries());
-  let {userName , userToken} = JSON.parse(sessionStorage.getItem("user"));
+  let {userName , userToken, expireTime} = JSON.parse(sessionStorage.getItem("user"));
   sessionStorage.setItem("user", JSON.stringify({userName: userName, userToken: userToken, 
-   triviaSetup:{ category: category, type:type, difficulty:difficulty}}))
-   console.log(sessionStorage.getItem("user"))
+   triviaSetup:{ category: category, type:type, difficulty:difficulty}, expireTime:expireTime}))
    return redirect("trivia")
 }
 

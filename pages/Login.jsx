@@ -44,10 +44,8 @@ export default function Login() {
       userToken: data.token,
       expireTime : expiryDate
     });
-    sessionStorage.setItem(
-      "user",
-      JSON.stringify({ userName: name, userToken: data.token, expireTime:expiryDate })
-    );
+    sessionStorage.setItem("user", JSON.stringify({userName: name, userToken: data.token, expiryTime : expiryDate}))
+   
     setTimeout(() => {
       navigate("/play");
     }, 5000);

@@ -1,12 +1,11 @@
-import { useState, Suspense} from "react";
-import { useLoaderData, useOutletContext,Await  } from "react-router-dom";
+import { useState, useEffect, Suspense} from "react";
+import { useLoaderData, useOutletContext, Await, useBlocker  } from "react-router-dom";
 
 import RenderQuestions from "../components/RenderQuestions";
 import { fetchQuestions } from "../src/utils"
 
 export async function loader() {
   let { userToken, triviaSetup } = JSON.parse(sessionStorage.getItem("user"));
-  console.log(JSON.parse(sessionStorage.getItem("user")))
   let { category, difficulty, type } = triviaSetup;
   let selectedCategory = category ? `&category=${category}` : "";
   let selectedDifficulty = difficulty ? `&difficulty=${difficulty}` : "";
@@ -29,8 +28,36 @@ export default function Trivia() {
     answers.length > 0 ? answers.filter((ans) => ans.status).length : 0;
   let lostCount =
     answers.length > 0 ? answers.filter((ans) => !ans.status).length : 0;
+
+    let blocker = useBlocker(
+    ({ currentLocation, nextLocation }) =>
+      answers.length > 0 && 
+      answers.length < queCount &&
+      currentLocation.pathname !== nextLocation.pathname
+  );
+
+  useEffect(() => {
+  if (answers.length > 0 && answers.length < queCount) {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = ""; // Standard way to trigger browser prompt
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }
+}, [answers, queCount]);
   return (
     <>
+    {/* Navigation Confirmation Modal */}
+      {blocker.state === "blocked" ? (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>Are you sure you want to leave? Your trivia progress will be lost!</p>
+            <button onClick={() => blocker.proceed()}>Yes, Leave</button>
+            <button onClick={() => blocker.reset()}>Stay & Finish</button>
+          </div>
+        </div>
+      ) : null}
     <Suspense fallback={<h1>Loading...</h1>}>
       <Await resolve={mainData}>
           { (queData) =>

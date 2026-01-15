@@ -232,6 +232,23 @@ select {
   gap: 1rem;
 }
 
+.modal-content {
+	z-index: 15;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 15%;
+	background: var(--clr-secondary-rgb);
+	backdrop-filter: blur(16px);
+	bottom: 0;
+	height: 25%;
+	padding: 1.5rem;
+	border-radius: 16px;
+	font-size: 1.2rem;
+}
+
 @media screen and (min-width: 1080px) {
   .main-title {
     font-size: 10rem;
