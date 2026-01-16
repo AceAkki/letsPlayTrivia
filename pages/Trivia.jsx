@@ -8,6 +8,7 @@ import {
 
 import RenderQuestions from "../components/RenderQuestions";
 import { fetchQuestions } from "../src/utils";
+import ModalSec from "../components/Modal";
 
 export async function loader() {
   let { userToken, triviaSetup } = JSON.parse(sessionStorage.getItem("user"));
@@ -60,15 +61,7 @@ export default function Trivia() {
     <>
       {/* Navigation Confirmation Modal */}
       {blocker.state === "blocked" ? (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <p>
-              Are you sure you want to leave? Your trivia progress will be lost!
-            </p>
-            <button onClick={() => blocker.proceed()}>Yes, Leave</button>
-            <button onClick={() => blocker.reset()}>Stay & Finish</button>
-          </div>
-        </div>
+          <ModalSec blocker={blocker}/>
       ) : null}
       
       <Suspense fallback={<h1>Loading...</h1>}>

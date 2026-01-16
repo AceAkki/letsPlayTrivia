@@ -10,13 +10,12 @@ export function Layout() {
   let [user, setUser] = useState(()=> {
     let userData = sessionStorage.getItem("user");
     let initialValue = JSON.parse(userData);
-    console.log(initialValue, new Date().getTime())
-    if (initialValue?.expireTime < new Date().getTime()) return null;
+    if (new Date().getTime() > initialValue?.expiryTime) return null;
     return initialValue || null;
   })
 
   useEffect(() => {
-    const nav = navRef.current;
+    const nav = navRef.current; 
     if (!nav) return;
     let headerHeight =
       Math.floor(
@@ -27,10 +26,10 @@ export function Layout() {
 
     let handleScroll = () => {
       if (scrollY > 20) {
-        document.querySelector("header nav").classList.add("header-wrap");
+       nav.classList.add("header-wrap");
         // document.querySelector(".user-status-sec").classList.add("short-wrap");
       } else {
-        document.querySelector("header nav").classList.remove("header-wrap");
+       nav.classList.remove("header-wrap");
         // document.querySelector(".user-status-sec").classList.remove("short-wrap");
       }
   }

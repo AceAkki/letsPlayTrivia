@@ -8,6 +8,9 @@ import {
   useActionData,
 } from "react-router-dom";
 
+import UserSec from "../components/UserSec";
+import { FormSec } from "../components/FormSec";
+
 // requests token and and return form value and fetched
 export async function action({ request }) {
   try {
@@ -17,7 +20,7 @@ export async function action({ request }) {
       `https://opentdb.com/api_token.php?command=request`
     );
     const registerDate = new Date().getTime();
-    const expiryDate = registerDate + 60 * 60 * 1000 * 6;
+    const expiryDate = registerDate + 60 * 60 * 1000 * 5;
     if (response) {
       const data = await response.json();
       console.log(data);
@@ -60,49 +63,9 @@ export default function Login() {
   return (
     <>
       {user ? (
-        <div className="user-screen">
-          <h2>Hello {user.userName}! </h2>
-          <div className="user-welcom-para">
-            <p>
-              Welcome to the <strong>Trivia Game</strong>! You can start by
-              selecting your preferred <strong>category</strong>, 
-              <strong> question type</strong>, and
-              <strong> difficulty level</strong>. Once you're ready, you’ll be
-              presented with up to <strong>10 questions</strong>, one by one.
-            </p>
-            <p>
-              After each question, you'll immediately know if your answer was
-              <strong> correct</strong> or <strong> incorrect</strong>, and you
-              can always see the <strong>right answer</strong> if you happen to
-              miss it. At the end of the quiz, you'll get a summary of how many
-              answers you got <strong>right</strong> and <strong>wrong</strong>.
-              If you'd like, you can <strong>replay</strong> the quiz to
-              challenge yourself again. <strong>Ready to begin?</strong> Let's
-              see how much you know!
-            </p>
-          </div>
-          <button onClick={logout}>Delete All & Log Out</button>
-        </div>
+        <UserSec user={user} logout={logout}/>
       ) : (
-        <section className="form-sec">
-          <h5 style={{ color: "var(--clr-warning)" }}>
-            {searchParam.get("message") !== null
-              ? searchParam.get("message")
-              : null}
-          </h5>
-          <Form className="name-form" method="post">
-            <label htmlFor="name">What's your name </label>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              placeholder="Your Name Here"
-              aria-label="Type Name"
-              required
-            />
-            <button> Submit</button>
-          </Form>
-        </section>
+        <FormSec searchParam={searchParam} />
       )}
     </>
   );

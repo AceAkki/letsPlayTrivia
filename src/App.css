@@ -127,7 +127,7 @@ select {
   border: 2px solid var(--clr-primary-light);
 }
 
-.btn-select {
+.btn, .btn-select {
   padding: 1rem 2rem;
   margin: 1rem 0 0;
   font-size: 1.1rem;
@@ -239,14 +239,31 @@ select {
 	left: 0;
 	right: 0;
 	margin: auto;
-	width: 15%;
+	width: 30%;
+	height: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 	background: var(--clr-secondary-rgb);
+  border: 1px solid var(--clr-primary);
 	backdrop-filter: blur(16px);
 	bottom: 0;
-	height: 25%;
 	padding: 1.5rem;
 	border-radius: 16px;
 	font-size: 1.2rem;
+}
+
+.modal-content .btn-wrap{
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+
+.btn-warning {
+  background: var(--clr-warning);
+  color: var(--clr-primary);
 }
 
 @media screen and (min-width: 1080px) {
