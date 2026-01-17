@@ -1,16 +1,17 @@
 import { useEffect, useState, Suspense } from "react";
-import {useLoaderData, Await, Form, redirect } from "react-router-dom";
+import { useLoaderData, Await, Form, redirect } from "react-router-dom";
+
+import { useUserSessionCategory } from "../../hooks/userMain";
 
 export async function action({ request }) {
-  let formData  = await request.formData();
+  let formData = await request.formData();
   let { category, type, difficulty } = Object.fromEntries(formData.entries());
-  let {userName , userToken, expiryTime} = JSON.parse(sessionStorage.getItem("user"));
-  sessionStorage.setItem("user", JSON.stringify({
-    userName: userName, 
-    userToken: userToken, 
-    expiryTime:expiryTime,
-   triviaSetup:{ category: category, type:type, difficulty:difficulty}}))
-   return redirect("trivia")
+  useUserSessionCategory({
+    userCategory: category,
+    userType: type,
+    userDifficulty: difficulty,
+  });
+  return redirect("trivia");
 }
 
 export async function loader() {
@@ -36,8 +37,8 @@ export default function Category() {
     <>
       <Suspense fallback={<h1>Loading...</h1>}>
         <Await resolve={categories}>
-          {(value) => {
-            let getCategories = value.map((category) => (
+          {(categoriesValue) => {
+            let getCategories = categoriesValue.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
               </option>
@@ -48,7 +49,7 @@ export default function Category() {
               </option>
             ));
             let getType = typeArr.map((type) => (
-              <option key={type.name} value={type.value}>
+              <option key={type.name} value={type.categoriesValue}>
                 {type.name}
               </option>
             ));

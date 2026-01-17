@@ -8,19 +8,20 @@ import {
 
 import "./App.css";
 
-import { Layout } from "../components/Layout";
-import PlayLayout from "../components/PlayLayout";
+import { Layout } from "./components/Layout";
+import PlayLayout from "./features/play/components/PlayLayout";
 
-// pages
-import Main from "../pages/Main";
-import Login, {action as LoginAction} from "../pages/Login";
-import About from '../pages/About'
+// features
+import Main from "./features/Main";
+import About from './features/About'
 
-import Category, {loader as CategoryLoader, action as CategoryAction} from '../pages/Category'
-import Trivia, {loader as TriviaLoader} from '../pages/Trivia'
+import Login, {action as LoginAction} from "./features/user/Login";
+import Category, {loader as CategoryLoader, action as CategoryAction} from './features/play/Category'
+import Trivia, {loader as TriviaLoader} from './features/play/Trivia'
 
-import NotFound from "../pages/NotFound";
-import Error from "../pages/Error";
+// error handling
+import NotFound from "./features/NotFound";
+import Error from "./features/Error";
 
 import { requireAuth } from "./utils";
 

@@ -1,43 +1,13 @@
 import { Suspense } from "react";
 import { Await } from "react-router-dom";
 
-export default function RenderQuestions({ allData, state, index }) {
+import {useQuestionMain} from "../hooks/questionMain"
+
+export default function RenderQuestion({ allData, state, index }) {
   let [answers, setAnswers] = state;
-
-  function handleClick(que, userAns, correctAns) {
-    console.log(userAns, correctAns);
-    setAnswers((oldAns) => {
-      return [
-        ...oldAns,
-        {
-          question: que,
-          ans: userAns,
-          correctAns: correctAns,
-          status: userAns !== correctAns ? false : true,
-        },
-      ];
-    });
-  }
-
   let answeredQue = answers.map((obj) => obj.question);
-
-  function checkRightAns(currentAns, que) {
-    // if current question doesnt exists in already answered questions then return
-    if (!answers.find((obj) => obj.question === que)) return;
-
-    // finds question object that matches current que
-    let queObj = answers.find((obj) => obj.question === que);
-    if (currentAns === queObj.correctAns && !queObj.status) {
-      return "show-ans";
-    }
-
-    // if question object's answer doesn't match current answer return to avoid multiple answers getting flagged
-    if (queObj.ans !== currentAns || !answeredQue.includes(que)) return;
-
-    // its part of answered question and queObj status turns true then it will be a correct answer
-    return queObj.status ? "correct-ans" : "wrong-ans";
-  }
-
+  let [handleClick, checkRightAns] = useQuestionMain();
+  
   return (
     <Suspense fallback={<h1>Loading Data..</h1>}>
       <Await resolve={allData}>
@@ -69,7 +39,6 @@ export default function RenderQuestions({ allData, state, index }) {
               </div>
             </div>
           );
-
         }}
       </Await>
     </Suspense>

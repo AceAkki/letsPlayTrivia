@@ -8,8 +8,10 @@ import {
   useActionData,
 } from "react-router-dom";
 
-import UserSec from "../components/UserSec";
-import { FormSec } from "../components/FormSec";
+import UserSec from "./components/UserSec";
+import { FormSec } from "./components/FormSec";
+
+import {useUserSessionMain} from "../../hooks/UserMain"
 
 // requests token and and return form value and fetched
 export async function action({ request }) {
@@ -37,22 +39,8 @@ export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
   let [user, setUser] = useOutletContext();
   let userData = useActionData();
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    if (!userData) return;
-    let { name, data, expiryDate } = userData;
-    setUser({
-      userName: name,
-      userToken: data.token,
-      expireTime : expiryDate
-    });
-    sessionStorage.setItem("user", JSON.stringify({userName: name, userToken: data.token, expiryTime : expiryDate}))
-   
-    setTimeout(() => {
-      navigate("/play");
-    }, 1000);
-  }, [userData]);
+  useUserSessionMain({userData:userData, setUser:setUser})
+  
 
   function logout() {
     sessionStorage.removeItem("user");

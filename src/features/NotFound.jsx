@@ -7,7 +7,7 @@ export default function NotFound(){
     useEffect(()=> {
         setTimeout(()=> {
             navigate('/');
-        }, 5000)
+        }, 2000)
     }, [])
 
     return (
