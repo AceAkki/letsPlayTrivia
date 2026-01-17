@@ -10,6 +10,9 @@ export default function UserSec({
     <section className="trivia-sec">
       <h1>Hey {user.userName}, here’s how you did:</h1>
       <div className="result-wrap">
+        <h2 className="result-text">
+          Your Final Score is {winCount} out of {queCount}!
+        </h2>
         <h3 className="result-text">
           You got <strong>{winCount} </strong> answers correct!
         </h3>

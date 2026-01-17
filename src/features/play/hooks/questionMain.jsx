@@ -1,4 +1,4 @@
-export default function useQuestionMain() {
+export default function useQuestionMain(answers, setAnswers, answeredQue) {
   function handleClick(que, userAns, correctAns) {
     console.log(userAns, correctAns);
     setAnswers((oldAns) => {

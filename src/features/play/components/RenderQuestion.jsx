@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import { Await } from "react-router-dom";
 
-import {useQuestionMain} from "../hooks/questionMain"
+import useQuestionMain from "../hooks/questionMain"
 
 export default function RenderQuestion({ allData, state, index }) {
   let [answers, setAnswers] = state;
   let answeredQue = answers.map((obj) => obj.question);
-  let [handleClick, checkRightAns] = useQuestionMain();
+  let [handleClick, checkRightAns] = useQuestionMain(answers, setAnswers, answeredQue);
   
   return (
     <Suspense fallback={<h1>Loading Data..</h1>}>
