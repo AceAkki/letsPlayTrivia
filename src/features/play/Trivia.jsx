@@ -86,7 +86,7 @@ export default function Trivia() {
                     />
                   }
                   <button
-                    className="btn-select"
+                    className="btn btn-select"
                     onClick={() => {
                       answers.length > currentIndex
                         ? setCurrentIndex((prev) => prev + 1)

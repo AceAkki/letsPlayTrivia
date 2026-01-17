@@ -74,7 +74,7 @@ export default function Category() {
                     {getType}
                   </select>
                 </div>
-                <button className="btn-select">Start Trivia</button>
+                <button className="btn btn-select">Start Trivia</button>
               </Form>
             );
           }}

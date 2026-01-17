@@ -26,11 +26,11 @@ export default function UserSec({
           : "Ah, not this time! But even the greatest warriors fall before the storm. Your effort was valiant. Ready to rise again and face the next challenge?"}
       </p>
       <div className="btn-wrap">
-        <button className="btn-select" onClick={restartGame}>
+        <button className="btn" onClick={restartGame}>
           Restart Game
         </button>
         {queCount !== 50 ? (
-          <button className="btn-select" onClick={moreQuestions}>
+          <button className="btn" onClick={moreQuestions}>
             More Questions
           </button>
         ) : null}
