@@ -113,6 +113,9 @@ footer {
   font-weight: 400;
 }
 
+footer .nav-wrap {
+  font-size: 1rem;
+}
 
 
 @media screen and (min-width: 1080px) {
