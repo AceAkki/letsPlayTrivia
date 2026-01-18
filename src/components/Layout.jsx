@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import useHeaderEffect from "../hooks/headerEffect";
-import useUserMain from "../hooks/UserMain";
+import useUserMain from "../hooks/userMain";
 
 export function Layout() {
   const navRef = useRef(null);
