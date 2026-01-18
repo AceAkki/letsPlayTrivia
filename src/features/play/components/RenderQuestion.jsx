@@ -6,7 +6,7 @@ import useQuestionMain from "../hooks/questionMain"
 export default function RenderQuestion({ allData, state, index }) {
   let [answers, setAnswers] = state;
   let answeredQue = answers.map((obj) => obj.question);
-  let [handleClick, checkRightAns] = useQuestionMain(answers, setAnswers, answeredQue);
+  let [handleClick, checkRightAns] = useQuestionMain({answers:answers, setAnswers:setAnswers, answeredQue:answeredQue});
   
   return (
     <Suspense fallback={<h1>Loading Data..</h1>}>
@@ -25,7 +25,7 @@ export default function RenderQuestion({ allData, state, index }) {
                       type="radio"
                       name={`answer ${dt.question}`}
                       onClick={(e) =>
-                        handleClick(dt.question, ans, dt.correct_answer)
+                        handleClick({event: e,que:dt.question, userAns:ans, correctAns:dt.correct_answer})
                       }
                       value={ans}
                       disabled={

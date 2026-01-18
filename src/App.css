@@ -4,7 +4,7 @@
   flex-direction: column;
   /* background: transparent;
   backdrop-filter: blur(10px); */
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.5rem 3rem;
 }
 
 .main-title {
@@ -210,14 +210,9 @@ select {
   color: var(--clr-secondary);
 }
 
-.answer-wrap label.wrong-ans {
-  background: var(--clr-warning);
-  color: var(--clr-secondary);
-}
-
 .answer-wrap label.show-ans {
   background: var(--clr-neutral);
-  color: var(--clr-primary);
+  color: var(--clr-secondary);
 }
 
 .answer-wrap label {
@@ -229,6 +224,52 @@ select {
   padding: 0.5rem 0.7rem 0.5rem 0.9rem;
   transition: all 0.5s ease-in-out;
 }
+
+.answer-wrap input[type="radio"] {
+  display: none;
+}
+
+.answer-wrap label {
+  cursor: pointer;
+  padding: 0.6rem 2rem 0.6rem 3rem;
+  position: relative;
+  display: inline-block;
+  transition: all 0.9s ease-in-out;
+}
+
+.answer-wrap label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin: 0 1rem;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  background-color: var(--clr-secondary);
+  transition: all 0.2s linear;
+}
+
+.answer-wrap label.correct-ans:has(input[type="radio"]:checked)::before {
+  box-shadow: inset 0 0 0 2px #f4f4f4;
+  background-color:var(--clr-success);
+  border-color:var(--clr-success);
+}
+
+.answer-wrap label.wrong-ans:has(input[type="radio"]:checked)::before {
+  box-shadow: inset 0 0 0 2px #f4f4f4;
+  background-color:var(--clr-warning);
+  border-color:var(--clr-warning);
+}
+/* 
+.answer-wrap label:hover {
+  background: var(--clr-primary-light);
+  color: var(--clr-secondary);
+} */
+
 
 /* Trivia Page */
 

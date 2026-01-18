@@ -6,9 +6,9 @@
   --clr-secondary-rgb: rgba(255, 255, 255, 0.8);
 
 
-  --clr-success: #10b981; /* Emerald 500 */
-  --clr-neutral: #fef08a; /* Soft Amber */
-  --clr-warning: #ef4444; /* Rose-tinted Red */
+  --clr-success: #24513c; 
+  --clr-neutral: #518cca;
+  --clr-warning: #8B0000;
 
   --header-height: 0;
 }
