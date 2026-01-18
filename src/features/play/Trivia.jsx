@@ -72,7 +72,7 @@ export default function Trivia() {
             queCount > answers.length ? (
               <>
                 <section className="user-status-sec">
-                  <h1>Welcome {user.userName} !</h1>
+                  <h1>Welcome {user.userName}!</h1>
                   <p>Your current score : {winCount}</p>
                   <p>
                     Your current question : {answers.length} / {queCount}
