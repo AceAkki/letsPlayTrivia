@@ -115,6 +115,8 @@ footer {
 
 footer .nav-wrap {
   font-size: 1rem;
+  flex-direction: row;
+  padding: 0;
 }
 
 
