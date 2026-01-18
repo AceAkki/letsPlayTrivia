@@ -16,9 +16,9 @@ A dynamic, category-driven trivia application built with **React** and **React R
 ---
 ## 🛠️ Tech Stack
 
-* **Frontend Library:** React 18/19 (Functional Components & Hooks)
+* **Frontend Library:** React 19 (Functional Components & Hooks)
 * **Data Routing:** React Router 6.4+ (Utilizing `createBrowserRouter`, `loaders`, and `actions`)
 * **State Management:** React Context API & `useOutletContext` for localized global state.
 * **Asynchronous Patterns:** `Suspense` and `Await` for non-blocking UI rendering.
-* **Persistence Layer:** Browser `sessionStorage` for secure, tab-specific session tracking.
+* **Persistence Layer:** Browser `sessionStorage` for user and unique token.
 * **Styling:** CSS3 with Dynamic Variables.
