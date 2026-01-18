@@ -8,6 +8,7 @@ import {
 
 import "./App.css";
 
+// layout
 import { Layout } from "./components/Layout";
 import PlayLayout from "./features/play/components/PlayLayout";
 

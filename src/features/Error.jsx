@@ -6,6 +6,7 @@ export default function Error (){
     let err = useRouteError();
     console.log(err)
 
+    // Redirect to home after 5 seconds
     useEffect(()=> {
         setTimeout(()=> {
             navigate("/")

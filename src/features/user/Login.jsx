@@ -11,7 +11,7 @@ import {
 import UserSec from "./components/UserSec";
 import { FormSec } from "./components/FormSec";
 
-import {useUserSessionMain} from "../../hooks/UserMain"
+import {useUserSessionMain} from "../../hooks/userMain"
 
 // requests token and and return form value and fetched
 export async function action({ request }) {

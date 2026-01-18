@@ -10,6 +10,7 @@ import RenderQuestion from "./components/RenderQuestion";
 import { fetchQuestions } from "../../utils";
 import ModalSec from "./components/Modal";
 import UserSec from "./components/UserSec";
+
 import useTriviaMain from "./hooks/triviaMain";
 
 export async function loader() {

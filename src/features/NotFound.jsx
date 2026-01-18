@@ -4,6 +4,7 @@ import { redirect, useNavigate } from "react-router-dom"
 export default function NotFound(){
     const navigate = useNavigate();
 
+    // sends user back to home page after 2 seconds
     useEffect(()=> {
         setTimeout(()=> {
             navigate('/');
