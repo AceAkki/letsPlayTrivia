@@ -264,6 +264,13 @@ select {
   background-color:var(--clr-warning);
   border-color:var(--clr-warning);
 }
+
+.answer-wrap label:has(input[type="radio"]:disabled)::before {
+  box-shadow: inset 0 0 0 2px #f4f4f4;
+  background-color:var(--clr-primary-light);
+  border-color:var(--clr-primary-light);
+  opacity: 0.5;
+}
 /* 
 .answer-wrap label:hover {
   background: var(--clr-primary-light);
@@ -326,12 +333,9 @@ select {
   padding: 1rem;
   flex-basis: auto;
 }
-
-
-
+  
 .btn-warning {
   background: var(--clr-warning);
-  color: var(--clr-primary);
 }
 
 @media screen and (min-width: 1080px) {
