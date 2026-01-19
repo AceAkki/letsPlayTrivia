@@ -19,9 +19,9 @@ export async function fetchQuestions({selectedCategory, selectedDifficulty, sele
     const response = await fetch(
       `https://opentdb.com/api.php?amount=50${selectedCategory}${selectedDifficulty}${selectedType}${generatedToken}`
     );
-    console.log(
-      `https://opentdb.com/api.php?amount=50${selectedCategory}${selectedDifficulty}${selectedType}${generatedToken}`
-    );
+    // console.log(
+    //   `https://opentdb.com/api.php?amount=50${selectedCategory}${selectedDifficulty}${selectedType}${generatedToken}`
+    // );
     if (response) {
       const data = await response.json();
       let sortedData = data.results.map((dt) => {

@@ -1,6 +1,6 @@
 export default function useQuestionMain({answers, setAnswers, answeredQue}) {
   function handleClick({event, que, userAns, correctAns}) {
-    console.log(userAns, correctAns, event);
+    // console.log(userAns, correctAns, event);
     event.target.checked = true;
     setAnswers((oldAns) => {
       return [

@@ -25,7 +25,7 @@ export async function action({ request }) {
     const expiryDate = registerDate + 60 * 60 * 1000 * 5;
     if (response) {
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       return { name, data , expiryDate};
 
       // return redirect("../play");
@@ -39,6 +39,7 @@ export default function Login() {
   let [searchParam, setSearchParam] = useSearchParams();
   let [user, setUser] = useOutletContext();
   let userData = useActionData();
+  let navigate = useNavigate();
   useUserSessionMain({userData:userData, setUser:setUser})
   
 
