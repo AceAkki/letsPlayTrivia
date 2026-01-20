@@ -54,6 +54,6 @@ export function useUserSessionMain({userData, setUser}) {
 
     setTimeout(() => {
       navigate("/play");
-    }, 1000);
+    }, 2000);
   }, [userData]);
 }
