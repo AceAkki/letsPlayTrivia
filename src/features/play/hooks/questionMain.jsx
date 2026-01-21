@@ -1,4 +1,5 @@
 export default function useQuestionMain({answers, setAnswers, answeredQue}) {
+  // function to handle answer selection
   function handleClick({event, que, userAns, correctAns}) {
     // console.log(userAns, correctAns, event);
     event.target.checked = true;
@@ -15,6 +16,7 @@ export default function useQuestionMain({answers, setAnswers, answeredQue}) {
     });
   }
 
+  // function to check whether the current answer is right or wrong
   function checkRightAns(currentAns, que) {
     // if current question doesnt exists in already answered questions then return
     if (!answers.find((obj) => obj.question === que)) return;

@@ -13,6 +13,7 @@ import UserSec from "./components/UserSec";
 
 import useTriviaMain from "./hooks/triviaMain";
 
+// loads trivia questions based on user preferences and session token
 export async function loader() {
   let { userToken, triviaSetup } = JSON.parse(sessionStorage.getItem("user"));
   let { category, difficulty, type } = triviaSetup;
@@ -30,6 +31,7 @@ export async function loader() {
   return fetchedData;
 }
 
+// main Trivia component handling question rendering and user progress
 export default function Trivia() {
   let mainData = useLoaderData();
   let [user, setUser] = useOutletContext();

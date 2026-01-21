@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useBlocker } from "react-router-dom";
+
+// Hook for Trivia Main functionality
 export default function useTriviaMain() {
   let [answers, setAnswers] = useState([]);
   let [currentIndex, setCurrentIndex] = useState(0);
@@ -9,6 +11,7 @@ export default function useTriviaMain() {
   let lostCount =
     answers.length > 0 ? answers.filter((ans) => !ans.status).length : 0;
 
+  // Navigation blocker to prevent leaving mid-quiz
   let blocker = useBlocker(
     ({ currentLocation, nextLocation }) =>
       answers.length > 0 &&

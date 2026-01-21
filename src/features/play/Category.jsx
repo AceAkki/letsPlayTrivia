@@ -3,6 +3,7 @@ import { useLoaderData, Await, Form, redirect } from "react-router-dom";
 
 import { useUserSessionCategory } from "../../hooks/userMain";
 
+// handles form submission and saves user preferences to context
 export async function action({ request }) {
   let formData = await request.formData();
   let { category, type, difficulty } = Object.fromEntries(formData.entries());
@@ -14,6 +15,7 @@ export async function action({ request }) {
   return redirect("trivia");
 }
 
+// loads trivia categories from external API
 export async function loader() {
   const response = await fetch("https://opentdb.com/api_category.php");
   try {
@@ -35,6 +37,7 @@ export default function Category() {
 
   return (
     <>
+      {/* Form for selecting trivia category, difficulty, and type */}
       <Suspense fallback={<h1>Loading...</h1>}>
         <Await resolve={categories}>
           {(categoriesValue) => {
