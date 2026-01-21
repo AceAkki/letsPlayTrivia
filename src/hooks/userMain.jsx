@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+// Custom hook to manage user state
 export default function useUserMain() {
   let [user, setUser] = useState(() => {
     let userData = sessionStorage.getItem("user");
@@ -10,6 +12,7 @@ export default function useUserMain() {
   return [user, setUser];
 }
 
+// Custom hook to update user session with trivia setup
 export function useUserSessionCategory({
   userCategory,
   userType,
@@ -33,6 +36,7 @@ export function useUserSessionCategory({
   );
 }
 
+// Custom hook to manage user session after login
 export function useUserSessionMain({userData, setUser}) {
   let navigate = useNavigate();
   useEffect(() => {

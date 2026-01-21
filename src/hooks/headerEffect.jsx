@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+// Custom hook to manage header effects
 export default function useHeaderEffect(navRef) {
   useEffect(() => {
     const nav = navRef.current;
