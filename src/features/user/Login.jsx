@@ -42,7 +42,7 @@ export default function Login() {
   let navigate = useNavigate();
   useUserSessionMain({userData:userData, setUser:setUser})
   
-
+  // logout function
   function logout() {
     sessionStorage.removeItem("user");
     navigate("/");

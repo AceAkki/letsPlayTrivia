@@ -11,6 +11,7 @@ export default function NotFound(){
         }, 2000)
     }, [])
 
+    // basic 404 not found message then returns to home page
     return (
        <section>
          <h1>

@@ -1,6 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 
 export default function Main() {
+  // being shared with header and other components
   let [user, setUser] = useOutletContext();
   return (
     <>
