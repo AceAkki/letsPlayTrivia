@@ -22,6 +22,7 @@ export async function loader() {
   let selectedType = type ? `&type=${type}` : "";
   let generatedToken = `&token=${userToken}`;
 
+  // fetch questions using the specified parameters
   const fetchedData = await fetchQuestions({
     selectedCategory: selectedCategory,
     selectedDifficulty: selectedDifficulty,

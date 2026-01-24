@@ -19,6 +19,7 @@ export default function useTriviaMain() {
       currentLocation.pathname !== nextLocation.pathname,
   );
 
+  // Warn user on page unload if quiz is in progress
   useEffect(() => {
     if (answers.length > 0 && answers.length < queCount) {
       const handleBeforeUnload = (e) => {
